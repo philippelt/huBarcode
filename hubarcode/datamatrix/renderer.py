@@ -2,7 +2,7 @@
 
 __revision__ = "$Rev$"
 
-from cStringIO import StringIO
+from six import StringIO
 try:
     from PIL import Image
 except ImportError:
@@ -26,8 +26,10 @@ class DataMatrixRenderer:
         # add the edge handles
         self.add_handles()
 
-    def put_cell(self, (posx, posy), colour=1):
+    def put_cell(self, pos, colour=1):
         """Set the contents of the given cell"""
+        
+        posx, posy=pos
 
         self.matrix[posy][posx] = colour
 
