@@ -13,7 +13,7 @@ try:
 except ImportError:
     pass
 
-from cStringIO import StringIO
+from six import StringIO
 # maps bar width against font size
 font_sizes = {
     1: 8,
