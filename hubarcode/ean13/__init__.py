@@ -15,8 +15,8 @@ You may use this under a BSD License.
 
 __revision__ = "$Rev: 1$"
 
-import encoding
-from renderer import EAN13Renderer
+import .encoding
+from .renderer import EAN13Renderer
 #handling movement of reduce to functools python >= 2.6
 try:
     from functools import reduce
