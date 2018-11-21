@@ -1,6 +1,6 @@
 """QR Code renderer"""
 
-from cStringIO import StringIO
+from six import StringIO
 try:
     from PIL import Image
 except ImportError:
