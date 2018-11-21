@@ -1,5 +1,5 @@
 """Rendering code for code128 barcode"""
-from cStringIO import StringIO
+from six import StringIO
 try:
     from PIL import Image, ImageFont, ImageDraw
 except ImportError:
