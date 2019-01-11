@@ -94,19 +94,11 @@ class DataMatrixRenderer:
     def get_buffer(self, cellsize):
         """Convert the matrix into the buffer format used by PIL"""
 
-        def pixel(value):
-            """return pixel representation of a matrix value
-            0 => white, 1 => black"""
-            if value == 0:
-                return chr(255)
-            elif value == 1:
-                return chr(0)
-
-        # PIL writes image buffers from the bottom up,
-        # so feed in the rows in reverse
-        buf = ""
+        buf = b""
         for row in self.matrix[::-1]:
-            bufrow = ''.join([pixel(cell) * cellsize for cell in row])
+            bufrow = b''
+            for cell in row:
+                bufrow += bytearray((255 if cell > 0 else 0,)) * cellsize
             for _ in range(0, cellsize):
                 buf += bufrow
         return buf
