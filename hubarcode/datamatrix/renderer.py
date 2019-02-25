@@ -2,7 +2,7 @@
 
 __revision__ = "$Rev$"
 
-from six import StringIO
+from six import BytesIO
 try:
     from PIL import Image
 except ImportError:
@@ -86,7 +86,7 @@ class DataMatrixRenderer:
 
     def get_imagedata(self, cellsize):
         """Write the matrix out as PNG to an bytestream"""
-        imagedata = StringIO()
+        imagedata = BytesIO()
         img = self.get_pilimage(cellsize)
         img.save(imagedata, "PNG")
         return imagedata.getvalue()
